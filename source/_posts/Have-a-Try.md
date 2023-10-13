@@ -261,7 +261,7 @@ $ git push -u origin main
 
 -  默认情况下 public/ 不会被上传(也不该被上传)，确保`.gitignore` 文件中包含一行 `public/`。整体文件夹结构应该与 范例储存库 大致相似。
 
-3. 使用` node --version` 指令检查你电脑上的 Node.js 版本，并记下该版本 (例如：`v16.y.z`)
+3. 使用`node --version` 指令检查你电脑上的 Node.js 版本，并记下该版本 (例如：`v16.y.z`)
 4. 在储存库中建立` .github/workflows/pages.yml`，并填入以下内容 (将 16 替换为上个步骤中记下的版本)：
 ```
 name: Pages
@@ -305,7 +305,7 @@ jobs:
 CNAME
 若你使用了一个带有 CNAME 的自定义域名，你需要在 source/ 文件夹中新增 CNAME 文件。 更多信息
 
-# 将 Hexo 部署到 GitLab Pages
+## 将 Hexo 部署到 GitLab Pages
 在本教程中，我们将会使用 GitLab CI 将 Hexo 博客部署到 GitLab Pages 上。
 
 1. 新建一个 repository。如果你希望你的站点能通过 <你的 GitLab 用户名>.gitlab.io 域名访问，你的 repository 应该直接命名为 <你的 GitLab 用户名>.gitlab.io。
@@ -336,6 +336,55 @@ pages:
 
 ## Project page
 如果你更希望你的站点部署在 `<你的 GitLab 用户名>.gitlab.io` 的子目录中，你的 repository 需要直接命名为子目录的名字，这样你的站点可以通过 `https://<你的 GitLab 用户名>.gitlab.io/<repository 的名字>` 访问。你需要检查你的 Hexo 配置文件，将 url 的值修改为` https://<你的 GitLab 用户名>.gitlab.io/<repository 的名字>`、将 root 的值修改为` /<repository 的名字>/`
+
+## 一键部署
+Hexo 提供了快速方便的一键部署功能，让您只需一条命令就能将网站部署到服务器上。
+```
+$ hexo deploy
+```
+在开始之前，您必须先在 _config.yml 中修改参数，一个正确的部署配置中至少要有 type 参数，例如：
+```
+deploy:
+  type: git
+```
+您可同时使用多个 deployer，Hexo 会依照顺序执行每个 deployer。
+```
+deploy:
+- type: git
+  repo:
+- type: heroku
+  repo:
+```
+关于更多的部署插件，请参考 插件 列表。
+
+>缩进
+YAML依靠缩进来确定元素间的从属关系。因此，请确保每个deployer的缩进长度相同，并且使用空格缩进。
+
+### Git
+1. 安装 hexo-deployer-git。
+
+```
+$ npm install hexo-deployer-git --save
+```
+2. 修改配置。
+
+```
+  deploy:
+  type: git
+  repo: <repository url> #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  branch: [branch]
+  message: [message]
+```
+|参数|	描述|	默认|
+|-|-|-|
+|repo|	库（Repository）地址||
+|branch	|分支名称|	`gh-pages (GitHub) coding-pages (Coding.net) master (others)`|
+|message|	自定义提交信息|  |
+|token|	可选的令牌值，用于认证 repo。用 $ 作为前缀从而从环境变量中读取令牌||
+3. 生成站点文件并推送至远程库。执行 `hexo clean && hexo deploy`。
+- 除非你使用令牌或 SSH 密钥认证，否则你会被提示提供目标仓库的用户名和密码。
+- hexo-deployer-git 并不会存储你的用户名和密码. 请使用 git-credential-cache 来临时存储它们。
+4. 登入 Github/BitBucket/Gitlab，请在库设置（Repository Settings）中将默认分支设置为`_config.yml`配置中的分支名称。稍等片刻，您的站点就会显示在您的Github Pages中。
 
 
 

@@ -102,4 +102,7 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: git
+  type: ''
+  # repo: https://gitee.com/qi-letian/qi-letian.git #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  # branch: [branch]
+  # message: [message]
