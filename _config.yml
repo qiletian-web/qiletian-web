@@ -3,18 +3,21 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Articles of Qiletian
+title: Epiphany's Blog
 subtitle:
 description: 齐乐天的技术文档
 keywords:
-author: Letian Qi
+author: Epiphany
 language: en
 timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://qi-letian.gitee.io/
-permalink: :year/:month/:day/:title/
+permalink: pages/:category/:abbrlink/
+abbrlink:
+  alg: crc32
+  rep: hex
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks

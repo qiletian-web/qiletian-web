@@ -1,8 +1,15 @@
 ---
 title: 快速使用Hexo搭建个人博客
+name: Quickly-build-blog-with-Hexo
+categories: Hexo
+tags:
+  - Git
+  - Hexo
+  - GitHub
+  - GitLab
+abbrlink: d87f7b4f
 date: 2023-04-18 16:36:47
 updated: 2023-10-13 14:22:29
-tags: 
 ---
 
 # 开始使用
@@ -385,8 +392,6 @@ $ npm install hexo-deployer-git --save
 - 除非你使用令牌或 SSH 密钥认证，否则你会被提示提供目标仓库的用户名和密码。
 - hexo-deployer-git 并不会存储你的用户名和密码. 请使用 git-credential-cache 来临时存储它们。
 4. 登入 Github/BitBucket/Gitlab，请在库设置（Repository Settings）中将默认分支设置为`_config.yml`配置中的分支名称。稍等片刻，您的站点就会显示在您的Github Pages中。
-
-
 
 
 
