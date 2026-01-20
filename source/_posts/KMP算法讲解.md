@@ -2,8 +2,8 @@
 title: KMP算法讲解
 abbrlink: a7d291d5
 date: 2026-01-20 23:25:52
-updated:
-categories:
+updated: 2026-1-20 23:44:14
+categories: arithmetic
 tags:
   - - KMP
 ---
@@ -67,7 +67,9 @@ KMP 的灵魂在于 **Next 数组**（也称为前缀表）。它记录了模式
 
 ## 4. 算法流程图解
 
-假设文本串 `S = "aabaabaaf"`，模式串 `P = "aabaaf"`。
+假设文本串 `S = "aabaabaafa"`，模式串 `P = "aabaaf"`。
+
+![描述](../images/KMP.gif)
 
 1.  **匹配开始**：
     ```text
