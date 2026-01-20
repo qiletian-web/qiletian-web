@@ -95,9 +95,9 @@ http://dict-co.iciba.com/search.php?word=teacher&submit=查询
    1. 在执行调用之前，需要实例化一个 `Request` 对象，作用是定义请求的各种参数，`Request request = new Request.Builder().url(url).build();`
    2. 然后构建调用对象 `Call call = okHttpClient.newCall(request);`
    3. 最后执行调用，如果调用失败可能抛异常，所以必须抓取异常。`call.execute()` 就是执行调用的代码。
-3. `call.execute()` 返回的其实是一个执行的结果对象，调用对象的方法即可获取返回的字符串内容：`call.execute().body().string();`8
+3. `call.execute()` 返回的其实是一个执行的结果对象，调用对象的方法即可获取返回的字符串内容：`call.execute().body().string();`
 
-演示的代码基本上都属于**固定写法**。2
+演示的代码基本上都属于**固定写法**。
 
 > 任何时候都不要忘记 `pom.xml` 文件添加依赖，以及代码中使用 `import` 语句引入使用的类哦。
 
@@ -107,7 +107,7 @@ http://dict-co.iciba.com/search.php?word=teacher&submit=查询
 
 **关于输出结果**：
 
-`call.execute().body().string();` 可以取得服务器返回的具体内容。在下一章我们会详细学习，这里大家知道用法即可。5
+`call.execute().body().string();` 可以取得服务器返回的具体内容。在下一章我们会详细学习，这里大家知道用法即可。
 
 我们在 `console` 中看到的大量的文本内容，这是给浏览器识别的内容，包含了很多无效的内容。所以很多时候，我们使用程序调用 `API`，获取到需要的数据。
 
